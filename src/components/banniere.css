@@ -1,0 +1,29 @@
+.banniere {
+  display: flex;
+  align-items: center;
+}
+.banniere_logo {
+  width: 15%;
+}
+.banniere_navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.div-commande-btn {
+  width: 15%;
+}
+
+.div-commande-btn > button {
+  background-color: rgb(251, 233, 231);
+  border-radius: 50%;
+  height: 100px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.div-commande-btn > button:hover {
+  background-color: #ea9d94;
+  transition-duration: 0.5s;
+}
