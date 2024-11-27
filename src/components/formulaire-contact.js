@@ -23,60 +23,136 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form">
-      <h2>Contactez-nous</h2>
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Contactez-nous</h2>
       {submitted ? (
-        <p>Merci de nous avoir contacté. Nous reviendrons vers vous bientôt.</p>
+        <p style={styles.successMessage}>
+          Merci de nous avoir contacté. Nous reviendrons vers vous bientôt.
+        </p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name">Nom :</label>
+        <form style={styles.form} onSubmit={handleSubmit}>
+          <div style={styles.field}>
+            <label htmlFor="name" style={styles.label}>Nom :</label>
             <input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              style={styles.input}
               required
             />
           </div>
-          <div>
-            <label htmlFor="email">Email :</label>
+          <div style={styles.field}>
+            <label htmlFor="email" style={styles.label}>Email :</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              style={styles.input}
               required
             />
           </div>
-          <div>
-            <label htmlFor="phone">Téléphone :</label>
+          <div style={styles.field}>
+            <label htmlFor="phone" style={styles.label}>Téléphone :</label>
             <input
               type="tel"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              style={styles.input}
               required
             />
           </div>
-          <div>
-            <label htmlFor="message">Message :</label>
+          <div style={styles.field}>
+            <label htmlFor="message" style={styles.label}>Message :</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
+              style={styles.textarea}
               required
             ></textarea>
           </div>
-          <button type="submit">Envoyer</button>
+          <button type="submit" style={styles.button}>Envoyer</button>
         </form>
       )}
     </div>
   );
+
+  
 };
+
+const styles = {
+  container: {
+    maxWidth: '600px',
+    margin: '50px auto',
+    padding: '20px',
+    backgroundColor: '#fbe9e7',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  },
+  heading: {
+    color: '#b71c1c',
+    textAlign: 'center',
+    marginBottom: '20px',
+    fontSize: '24px',
+  },
+  successMessage: {
+    textAlign: 'center',
+    color: '#4caf50',
+    fontSize: '18px',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  field: {
+    marginBottom: '15px',
+  },
+  label: {
+    display: 'block',
+    marginBottom: '5px',
+    color: '#b71c1c',
+    fontSize: '16px',
+    fontWeight: 'bold',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    border: '1px solid #b71c1c',
+    borderRadius: '4px',
+    fontSize: '14px',
+    color: '#333',
+  },
+  textarea: {
+    width: '100%',
+    padding: '10px',
+    border: '1px solid #b71c1c',
+    borderRadius: '4px',
+    fontSize: '14px',
+    color: '#333',
+    minHeight: '100px',
+  },
+  button: {
+    backgroundColor: '#b71c1c',
+    color: '#fff',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  buttonHover: {
+    backgroundColor: '#a31616',
+  },
+};
+
 
 export default ContactForm;
