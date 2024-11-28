@@ -1,4 +1,3 @@
-import Banniere from "./banniere";
 import Presentation from "./presentation";
 import Atouts from "./atouts";
 import NewsSlider from "./offres";
@@ -10,8 +9,7 @@ import Footer from "./footer";
 const Accueil = () => {
   return (
     <div>
-      <Banniere />
-      <hr />
+      
       <Presentation />
       <hr />
       <Atouts />
