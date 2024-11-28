@@ -4,7 +4,7 @@ import Atout from './atout';
 const Atouts = () => {
   const atouts = [
     {
-      image: 'https://cdn-icons-png.flaticon.com/128/1892/1892654.png',
+      image: 'https://cdn-icons-png.flaticon.com/512/1892/1892654.png',
       text: 'Qualité exceptionnelle de nos produits.',
     },
     {
@@ -35,7 +35,7 @@ const styles = {
     backgroundColor: '#fbe9e7',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    maxWidth: '800px',
+    maxWidth: '100%',
     margin: 'auto',
   },
   heading: {
