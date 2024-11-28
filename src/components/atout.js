@@ -21,10 +21,10 @@ const styles = {
     border: '1px solid #ddd',
     borderRadius: '8px',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    maxWidth: '200px',
+    maxWidth: '30%',
   },
   image: {
-    width: '100%',
+    width: '50%',
     height: 'auto',
     borderRadius: '6px',
     marginBottom: '10px',

@@ -1,7 +1,7 @@
 import Banniere from "./banniere";
 import Presentation from "./presentation";
 import Atouts from "./atouts";
-import Offres from "./offres";
+import NewsSlider from "./offres";
 import NousTrouver from "./trouver";
 import GoCommande from "./go-commande";
 import ContactForm from "./formulaire-contact";
@@ -15,9 +15,7 @@ const Accueil = () => {
       <Presentation />
       <hr />
       <Atouts />
-      <hr />
-      <Offres />
-      <hr />
+      <NewsSlider />
       <NousTrouver />
       <hr />
       <GoCommande />
