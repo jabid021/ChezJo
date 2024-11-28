@@ -11,12 +11,19 @@ const Accueil = () => {
   return (
     <div>
       <Banniere />
+      <hr />
       <Presentation />
+      <hr />
       <Atouts />
+      <hr />
       <Offres />
+      <hr />
       <NousTrouver />
+      <hr />
       <GoCommande />
+      <hr />
       <ContactForm />
+
       <Footer />
     </div>
   );
