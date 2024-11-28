@@ -22,7 +22,7 @@ const Atouts = () => {
       <h2 style={styles.heading}>Nos Atouts</h2>
       <div style={styles.grid}>
         {atouts.map((atout, index) => (
-          <Atout image={atout.image} text={atout.text} />
+          <Atout key={index} image={atout.image} text={atout.text} />
         ))}
       </div>
     </div>

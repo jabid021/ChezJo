@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [valid, setValid] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.phone === "" ||
+      formData.message === ""
+    ) {
+      setValid(false);
+    } else {
+      setValid(true);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setSubmitted(true);
-    // Ajoutez ici une logique pour envoyer les données (ex : API ou email)
   };
 
   return (
@@ -32,7 +42,9 @@ const ContactForm = () => {
       ) : (
         <form style={styles.form} onSubmit={handleSubmit}>
           <div style={styles.field}>
-            <label htmlFor="name" style={styles.label}>Nom :</label>
+            <label htmlFor="name" style={styles.label}>
+              Nom :
+            </label>
             <input
               type="text"
               id="name"
@@ -44,7 +56,9 @@ const ContactForm = () => {
             />
           </div>
           <div style={styles.field}>
-            <label htmlFor="email" style={styles.label}>Email :</label>
+            <label htmlFor="email" style={styles.label}>
+              Email :
+            </label>
             <input
               type="email"
               id="email"
@@ -56,7 +70,9 @@ const ContactForm = () => {
             />
           </div>
           <div style={styles.field}>
-            <label htmlFor="phone" style={styles.label}>Téléphone :</label>
+            <label htmlFor="phone" style={styles.label}>
+              Téléphone :
+            </label>
             <input
               type="tel"
               id="phone"
@@ -68,7 +84,9 @@ const ContactForm = () => {
             />
           </div>
           <div style={styles.field}>
-            <label htmlFor="message" style={styles.label}>Message :</label>
+            <label htmlFor="message" style={styles.label}>
+              Message :
+            </label>
             <textarea
               id="message"
               name="message"
@@ -78,81 +96,95 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          <button type="submit" style={styles.button}>Envoyer</button>
+          <button
+            type="submit"
+            style={valid ? styles.button : styles.buttonDisabled}
+            disabled={!valid}
+          >
+            Envoyer
+          </button>
         </form>
       )}
     </div>
   );
-
-  
 };
 
 const styles = {
   container: {
-    maxWidth: '600px',
-    margin: '50px auto',
-    padding: '20px',
-    backgroundColor: '#fbe9e7',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    maxWidth: "600px",
+    margin: "50px auto",
+    padding: "20px",
+    backgroundColor: "#fbe9e7",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   },
   heading: {
-    color: '#b71c1c',
-    textAlign: 'center',
-    marginBottom: '20px',
-    fontSize: '24px',
+    color: "#b71c1c",
+    textAlign: "center",
+    marginBottom: "20px",
+    fontSize: "24px",
   },
   successMessage: {
-    textAlign: 'center',
-    color: '#4caf50',
-    fontSize: '18px',
+    textAlign: "center",
+    color: "#4caf50",
+    fontSize: "18px",
   },
   form: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   field: {
-    marginBottom: '15px',
+    marginBottom: "15px",
   },
   label: {
-    display: 'block',
-    marginBottom: '5px',
-    color: '#b71c1c',
-    fontSize: '16px',
-    fontWeight: 'bold',
+    display: "block",
+    marginBottom: "5px",
+    color: "#b71c1c",
+    fontSize: "16px",
+    fontWeight: "bold",
   },
   input: {
-    width: '100%',
-    padding: '10px',
-    border: '1px solid #b71c1c',
-    borderRadius: '4px',
-    fontSize: '14px',
-    color: '#333',
+    width: "100%",
+    padding: "10px",
+    border: "1px solid #b71c1c",
+    borderRadius: "4px",
+    fontSize: "14px",
+    color: "#333",
   },
   textarea: {
-    width: '100%',
-    padding: '10px',
-    border: '1px solid #b71c1c',
-    borderRadius: '4px',
-    fontSize: '14px',
-    color: '#333',
-    minHeight: '100px',
+    width: "100%",
+    padding: "10px",
+    border: "1px solid #b71c1c",
+    borderRadius: "4px",
+    fontSize: "14px",
+    color: "#333",
+    minHeight: "100px",
   },
   button: {
-    backgroundColor: '#b71c1c',
-    color: '#fff',
-    border: 'none',
-    padding: '10px 20px',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    backgroundColor: "#b71c1c",
+    color: "#fff",
+    border: "none",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "16px",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  buttonDisabled: {
+    backgroundColor: "grey",
+    color: "#fff",
+    border: "none",
+    padding: "10px 20px",
+    borderRadius: "4px",
+    cursor: "not-allowed",
+    fontSize: "16px",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   buttonHover: {
-    backgroundColor: '#a31616',
+    backgroundColor: "#a31616",
   },
 };
-
 
 export default ContactForm;
