@@ -13,7 +13,12 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name + " - " + value);
+
     setFormData({ ...formData, [name]: value });
+
+
+    
   };
 
   const handleKeyUp = (e) => {
@@ -38,6 +43,10 @@ const ContactForm = () => {
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Contactez-nous</h2>
+      <p>
+        Futur prise de contact : {formData.name} {formData.email}{" "}
+        {formData.phone} {formData.message}
+      </p>
       {submitted ? (
         <p style={styles.successMessage}>
           Merci de nous avoir contacté. Nous reviendrons vers vous bientôt.
@@ -106,7 +115,12 @@ const ContactForm = () => {
           <button
             type="submit"
             style={valid ? styles.button : styles.buttonDisabled}
-            disabled={!valid}
+            disabled={
+              FormData.name === "" ||
+              formData.email === "" ||
+              formData.phone === "" ||
+              formData.message === ""
+            }
           >
             Envoyer
           </button>
