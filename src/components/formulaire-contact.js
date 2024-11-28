@@ -14,6 +14,9 @@ const ContactForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleKeyUp = (e) => {
     if (
       formData.name === "" ||
       formData.email === "" ||
@@ -51,6 +54,7 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              onKeyUp={handleKeyUp}
               style={styles.input}
               required
             />
@@ -65,6 +69,7 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              onKeyUp={handleKeyUp}
               style={styles.input}
               required
             />
@@ -79,6 +84,7 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              onKeyUp={handleKeyUp}
               style={styles.input}
               required
             />
@@ -92,6 +98,7 @@ const ContactForm = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
+              onKeyUp={handleKeyUp}
               style={styles.textarea}
               required
             ></textarea>
