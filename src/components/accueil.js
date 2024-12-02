@@ -4,12 +4,10 @@ import NewsSlider from "./offres";
 import NousTrouver from "./trouver";
 import GoCommande from "./go-commande";
 import ContactForm from "./formulaire-contact";
-import Footer from "./footer";
 
 const Accueil = () => {
   return (
     <div>
-      
       <Presentation />
       <hr />
       <Atouts />
@@ -19,8 +17,6 @@ const Accueil = () => {
       <GoCommande />
       <hr />
       <ContactForm />
-
-      <Footer />
     </div>
   );
 };
